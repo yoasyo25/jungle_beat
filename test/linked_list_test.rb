@@ -67,5 +67,12 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop deep", list.to_string
   end
 
+  def test_can_print_all_data_from_list
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal "doop deep", list.to_string
+  end
+
 
 end
