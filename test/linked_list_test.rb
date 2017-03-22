@@ -74,5 +74,72 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop deep", list.to_string
   end
 
+  def test_it_can_prepend_to_a_list
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    assert_equal "plop suu", list.to_string
+    list.prepend("dop")
+    assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
+  end
+
+
+  #update the test here based on spec
+  def test_can_pop_the_last_node_from_the_list
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("plop")
+    assert_equal "doop deep plop", list.to_string
+    assert_equal 3, list.count
+    assert_equal "plop", list.pop
+    assert_equal "doop deep", list.to_string
+    assert_equal 2, list.count
+  end
+
+  # def test_can_pop_the_last_node_from_the_list
+  #   list = LinkedList.new
+  #   list.append("doop")
+  #   list.append("deep")
+  #   list.append("plop")
+  #   assert list.find("doop")
+  #   refute list.find("ohhh")
+  # end
+
+  def test_it_can_check_if_data_is_included_in_the_list
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("plop")
+    assert list.includes?("deep")
+    refute list.includes?("dep")
+  end
+
+  def test_it_can_find_x_number_of_elements
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal "deep woo shi shu blop", list.to_string
+    assert_equal "shi", list.find(2, 1)
+    assert_equal "woo shi shu", list.find(1, 3)
+  end
+
+
+  def test_it_can_insert_elements
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
+    list.insert(1, "woo")
+    assert_equal "dop woo plop suu", list.to_string
+  end
+
+
 
 end
