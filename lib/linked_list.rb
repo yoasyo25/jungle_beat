@@ -9,7 +9,11 @@ class LinkedList
 
   def append(data)
     @counter += 1
-    @head = Node.new(data)
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      @head.next_node = Node.new(data)
+    end
     data
   end
 
@@ -18,7 +22,13 @@ class LinkedList
   end
 
   def to_string
-    @head.data
+    output = ""
+    current = @head
+    until current.nil?
+      output << current.data + " "
+      current = current.next_node
+    end
+    output.strip
   end
 
 end

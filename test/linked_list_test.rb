@@ -40,10 +40,32 @@ class LinkedListTest < Minitest::Test
     assert_equal 1, list.count
   end
 
-  def test_it_can_print_data_in_the_list
+  def test_print_data_from_the_list
     list = LinkedList.new
     list.append("doop")
     assert_equal "doop", list.to_string
   end
+
+  def test_can_take_in_additional_data
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_instance_of Node, list.head.next_node
+  end
+
+  def test_can_count_additional_data
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal 2, list.count
+  end
+
+  def test_can_print_all_data_from_list
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal "doop deep", list.to_string
+  end
+
 
 end
