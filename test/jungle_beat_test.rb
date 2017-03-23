@@ -40,6 +40,4 @@ class JungleBeatTest < Minitest::Test
     assert_equal 3, jb.count
   end
 
-
-
 end
